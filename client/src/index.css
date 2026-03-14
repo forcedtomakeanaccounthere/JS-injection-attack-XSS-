@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light mode base ── */
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
+/* Custom scrollbar (dark) */
+.dark ::-webkit-scrollbar { width: 8px; height: 8px; }
+.dark ::-webkit-scrollbar-track { background: #0f172a; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Custom scrollbar (light) */
+.light ::-webkit-scrollbar { width: 8px; height: 8px; }
+.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+.light ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Console log panel */
+.console-panel {
+  font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.console-panel::-webkit-scrollbar { width: 6px; }
+.console-panel::-webkit-scrollbar-track { background: #0d1117; }
+.console-panel::-webkit-scrollbar-thumb { background: #21262d; border-radius: 3px; }
+
+/* Code block styling */
+.code-block {
+  font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+}
+
+/* XSS injected content styling (for vulnerable demos) */
+.vulnerable-output * {
+  max-width: 100%;
+}
+
+/* Smooth section scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Gradient backgrounds (dark) ── */
+.dark .gradient-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a1207 100%);
+}
+.dark .gradient-vulnerable {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2a1215 100%);
+}
+.dark .gradient-secure {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0a2a1a 100%);
+}
+
+/* ── Gradient backgrounds (light) ── */
+.light .gradient-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #fff7ed 100%);
+}
+.light .gradient-vulnerable {
+  background: linear-gradient(135deg, #fef2f2 0%, #fff1f2 50%, #fee2e2 100%);
+}
+.light .gradient-secure {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #dcfce7 100%);
+}
+
+/* Payload code overflow fix */
+.payload-code {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Animation for XSS alert simulation */
+@keyframes xss-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.xss-alert-flash {
+  animation: xss-flash 0.5s ease-in-out 3;
+}
+
+/* Toast notification */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.toast-enter {
+  animation: slideIn 0.3s ease-out;
+}
